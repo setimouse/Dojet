@@ -3,11 +3,7 @@ $__c = &$GLOBALS['config']['dispatch'];
 
 //	config defination.
 $__c = array(
-	'/^$/'	=> array(
-		LOGIC.'index.logic.php',
-		),
+	'/^test\/(\d*?)$/'	=> 'HomeAction',
 );
-
-
 
 unset($__c);

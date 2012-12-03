@@ -10,12 +10,14 @@ class Dispatcher {
         	return ;
         }
         
-        foreach ($routes as $routeRegx => $actionName) {
+        foreach ($routes as $routeRegx => $actionInfo) {
     		if ( preg_match($routeRegx, $requestUri, $reg) ) {
     		    for ($i = 1; $i < count($reg); $i++) {
                     RequestParam::setParam($i - 1, $reg[$i]);
     		    }
     		    
+				$actionName = $actionInfo['action'];
+
     		    $action = new $actionName();
     		    
     		    assert($action instanceof BaseAction);

@@ -1,6 +1,6 @@
 <?php
 
-class RequestParam {
+class MRequest {
 
     private static $_params;
     

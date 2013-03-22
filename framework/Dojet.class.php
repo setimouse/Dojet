@@ -8,4 +8,24 @@ class Dojet {
         $dispatcher->dispatch($requestUri);
     }
     
+    public function assert($condition, $message = null, $file = null, $line = null) {
+
+        if ($condition) {
+            return;
+        }
+
+        $assertMessage = '';
+
+        if (null !== $message) {
+            $assertMessage.= $message;
+        }
+        if (null !== $file) {
+            $assertMessage.= ' ['.$file.']';
+        }
+        if (null !== $line) {
+            $assertMessage.= ' ['.$line.']';
+        }
+
+        die($message);
+    }
 }
